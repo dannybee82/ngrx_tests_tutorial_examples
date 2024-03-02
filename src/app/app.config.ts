@@ -11,6 +11,7 @@ import { StoreModule, provideState, provideStore } from '@ngrx/store';
 import { counterReducer } from './reducers/counter.reducer';
 import { booksReducer } from './reducers/books.reducer';
 import { collectionReducer } from './reducers/collection.reducer';
+import { evenOrOddReducer } from './reducers/even-or-odd.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
     provideState({ name: 'count', reducer: counterReducer }),
     provideState({ name: 'books', reducer: booksReducer }),
     provideState({ name: 'collection', reducer: collectionReducer }),
+    provideState({ name: 'evenOdd', reducer: evenOrOddReducer }),
   ]
 };
