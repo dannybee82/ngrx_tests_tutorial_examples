@@ -3,12 +3,14 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrement, increment, reset } from '../../actions/counter.actions';
 import { CommonModule } from '@angular/common';
+import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
 
 @Component({
   selector: 'app-counter',
   standalone: true,
   imports: [
     CommonModule,
+    BackToHomeComponent,
   ],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss'

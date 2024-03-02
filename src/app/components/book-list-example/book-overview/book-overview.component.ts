@@ -6,6 +6,7 @@ import { selectBookCollection, selectBooks } from '../../../selectors/books.sele
 import { BooksActions, BooksApiActions } from '../../../actions/books.actions';
 import { BooksService } from '../../../services/books.service';
 import { Store } from '@ngrx/store';
+import { BackToHomeComponent } from '../../back-to-home/back-to-home.component';
 
 @Component({
   selector: 'app-book-overview',
@@ -14,6 +15,7 @@ import { Store } from '@ngrx/store';
     BookListComponent,
     BookCollectionComponent,
     CommonModule,
+    BackToHomeComponent
   ],
   templateUrl: './book-overview.component.html',
   styleUrl: './book-overview.component.scss'
