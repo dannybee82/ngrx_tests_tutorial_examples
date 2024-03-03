@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -7,11 +7,15 @@ import { routes } from './app.routes';
 
 //When using standalone-components/bootstrap:
 //Use: provideStore().
-import { StoreModule, provideState, provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { counterReducer } from './reducers/counter.reducer';
 import { booksReducer } from './reducers/books.reducer';
 import { collectionReducer } from './reducers/collection.reducer';
 import { evenOrOddReducer } from './reducers/even-or-odd.reducer';
+import { userReducer } from './reducers/user.reducer';
+//Note import this when using Effects: also add package: @ngrx/effects
+import { provideEffects } from '@ngrx/effects';
+import { UsersEffects } from './effects/user.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,5 +32,11 @@ export const appConfig: ApplicationConfig = {
     provideState({ name: 'books', reducer: booksReducer }),
     provideState({ name: 'collection', reducer: collectionReducer }),
     provideState({ name: 'evenOdd', reducer: evenOrOddReducer }),
+    provideState({ name: 'users', reducer: userReducer }),
+
+    //Register effect.
+    provideEffects([UsersEffects]),
   ]
 };
+
+

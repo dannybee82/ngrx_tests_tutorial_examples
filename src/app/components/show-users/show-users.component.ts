@@ -1,0 +1,38 @@
+import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { UserStateInterface } from '../../interfaces/user-state.interface';
+import * as UserActions from '../../actions/user.actions'
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
+import { MatButtonModule } from '@angular/material/button';
+
+@Component({
+  selector: 'app-show-users',
+  standalone: true,
+  imports: [
+    CommonModule,
+    BackToHomeComponent,
+    MatButtonModule
+  ],
+  templateUrl: './show-users.component.html',
+  styleUrl: './show-users.component.scss'
+})
+export class ShowUsersComponent implements OnInit {
+
+  data$?: Observable<UserStateInterface>;
+
+  showButton: WritableSignal<boolean> = signal(true);
+
+  private store = inject(Store<UserStateInterface>);
+
+  ngOnInit() : void {    
+    this.data$ = this.store.select('users');
+  }
+
+  showUsers() : void {
+    this.showButton.set(false);
+    this.store.dispatch(UserActions.getUsers());
+  }
+
+}
