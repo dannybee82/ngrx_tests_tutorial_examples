@@ -9,6 +9,7 @@ export const initialState: NumbersInterface = {
     isEven: true 
 }
 
+//Below: the on() method determines which Action will be handled.
 export const evenOrOddReducer = createReducer(
     initialState,
     on(setData, (state, {payload}) => 
