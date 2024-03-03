@@ -7,7 +7,7 @@ import { increment, decrement, reset } from '../actions/counter.actions';
 export const initialState = 0;
 
 //Create reducer with createReducer() method.
-//With on() mehthod Actions (first parameter) are associated with a specific state-change-function (that is the last parameter).
+//With on() method Actions (first parameter) are associated with a specific state-change-function (that is the last parameter).
 export const counterReducer = createReducer(
   initialState,
   on(increment, (state) => state + 1),

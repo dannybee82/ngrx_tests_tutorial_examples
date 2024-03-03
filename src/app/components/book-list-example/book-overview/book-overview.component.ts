@@ -7,6 +7,8 @@ import { BooksActions, BooksApiActions } from '../../../actions/books.actions';
 import { BooksService } from '../../../services/books.service';
 import { Store } from '@ngrx/store';
 import { BackToHomeComponent } from '../../back-to-home/back-to-home.component';
+import { Observable } from 'rxjs';
+import { BookInterface } from '../../../interfaces/book.interface';
 
 @Component({
   selector: 'app-book-overview',
@@ -25,8 +27,8 @@ export class BookOverviewComponent implements OnInit {
   private booksService = inject(BooksService);
   private store = inject(Store);
 
-  books$ = this.store.select(selectBooks);
-  bookCollection$ = this.store.select(selectBookCollection);
+  books$?: Observable<readonly BookInterface[]>;
+  bookCollection$?: Observable<BookInterface[]>;
 
   ngOnInit() : void {
     this.booksService
@@ -34,6 +36,9 @@ export class BookOverviewComponent implements OnInit {
     .subscribe((books) =>
       this.store.dispatch(BooksApiActions.retrievedBookList({ books }))
     );
+
+    this.books$ = this.store.select(selectBooks);
+    this.bookCollection$ = this.store.select(selectBookCollection);
   }
 
   onAdd(bookId: string) {
@@ -45,4 +50,3 @@ export class BookOverviewComponent implements OnInit {
   }
 
 }
-

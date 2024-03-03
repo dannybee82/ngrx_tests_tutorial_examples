@@ -17,9 +17,10 @@ import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
 })
 export class CounterComponent implements OnInit {
 
-  count$?: Observable<number>; //data-stream undefined, initialState from Reducer.
+  //data-stream undefined, initialState from Reducer.
+  count$?: Observable<number>; 
 
-  //Ijnect the store here, 1) to dispatch Actions and 2) to select the current state of 'count'.
+  //Inject the store here, 1) to dispatch Actions and 2) to select the current state of 'count'.
   private store = inject(Store<{ count: number }>);
 
   ngOnInit() : void {

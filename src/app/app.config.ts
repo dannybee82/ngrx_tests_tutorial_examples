@@ -22,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     //Use: importProvidersFrom(). A global state-container (count) with it's Reducer (counterReducer) is defined here.
     //importProvidersFrom( StoreModule.forRoot({ count: counterReducer }) ),
     //importProvidersFrom( StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }) )
+    
     //When working with standalone-bootstrap/components, the lines below can be used:
     provideState({ name: 'count', reducer: counterReducer }),
     provideState({ name: 'books', reducer: booksReducer }),
