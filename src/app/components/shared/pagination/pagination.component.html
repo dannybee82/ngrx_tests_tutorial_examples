@@ -1,0 +1,30 @@
+<div class="col-auto float-start mt-1">
+    <ul class="pagination col-auto m-0 border border-1">
+      <ng-container *ngIf="this.amountOfPages >= 2">
+        <li class="page-item">
+          <a class="page-link {{this.page}}" title="Vorige Pagina" (click)="this.previousPage()">
+            <mat-icon class="material-symbols-outlined">chevron_left</mat-icon>
+          </a>
+        </li>
+      </ng-container>
+      <ng-container *ngFor="let pagination of this.getPagination(); let i = index">        
+        <ng-container *ngIf="!this.isCurrentPageIndex(pagination)">
+          <li class="page-item">
+            <a class="page-link {{this.page}}" title="Go to page: {{ pagination }}" (click)="this.setPageIndex(pagination)">{{ pagination }}</a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="this.isCurrentPageIndex(pagination)">
+          <li class="page-item-active">
+            <a class="page-link {{this.page}}" title="Go to page: {{ pagination }}">{{ pagination }}</a>
+          </li>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="this.amountOfPages >= 2">
+        <li class="page-item">
+          <a class="page-link {{this.page}}" title="Volgende Pagina" (click)="this.nextPage()">
+            <mat-icon class="material-symbols-outlined">chevron_right</mat-icon>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>

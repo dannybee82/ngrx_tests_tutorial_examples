@@ -16,6 +16,7 @@ import { userReducer } from './reducers/user.reducer';
 //Note import this when using Effects: also add package: @ngrx/effects
 import { provideEffects } from '@ngrx/effects';
 import { UsersEffects } from './effects/user.effects';
+import { paginationReducer } from './reducers/pagination.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -33,6 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideState({ name: 'collection', reducer: collectionReducer }),
     provideState({ name: 'evenOdd', reducer: evenOrOddReducer }),
     provideState({ name: 'users', reducer: userReducer }),
+    provideState({ name: 'pagination', reducer: paginationReducer }),
 
     //Register effect.
     provideEffects([UsersEffects]),
