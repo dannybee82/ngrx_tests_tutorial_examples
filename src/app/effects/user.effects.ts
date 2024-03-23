@@ -8,13 +8,13 @@ import { UserInterface } from "../interfaces/user.interface";
 @Injectable()
 export class UsersEffects {
 
-    actions$ = inject(Actions);
-    userService = inject(UserService);
+    private actions$ = inject(Actions);
+    private userService = inject(UserService);
 
     getUsers$ = createEffect(() => 
         //this.actions$ = a stream of Actions.
         this.actions$.pipe(
-            //ofType() listens to a sinle Action.
+            //ofType() listens to a single Action. ofType() filters the Action.
             ofType(UserActions.getUsers),
             mergeMap(() => {
                 return this.userService
