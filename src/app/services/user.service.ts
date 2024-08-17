@@ -16,6 +16,7 @@ export class UserService {
     { id: '5', name: 'Abigaïl', age: 21 },
     { id: '6', name: 'Joyce', age: 25 },
     { id: '7', name: 'Tess', age: 31 },
+    { id: '8', name: 'Juliette', age: 23 },
   ];
 
   constructor() { }
