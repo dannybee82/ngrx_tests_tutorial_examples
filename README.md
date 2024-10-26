@@ -1,27 +1,37 @@
-# NgrxTesten
+# ngrx\_tests\_tutorial\_examples
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+Angular 18 application + Angular Material + Bootstrap 5
 
-## Development server
+Showcase of NgRX examples - when returning back to a page it keeps it's state.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+\- Counter example.
 
-## Code scaffolding
+\- Book list example.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+\- Show even or odd numbers.
 
-## Build
+\- Show users example.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+\- Show users with pagination.
 
-## Running unit tests
+\- Show animals.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+See the root of this project for example images.
 
-## Running end-to-end tests
+## Installation + run app
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Command to install**
 
-## Further help
+_npm install_
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+or shorter:
+
+_npm i_
+
+**Command to run the application:**
+
+_ng serve --open_
+
+or shorter:
+
+_ng s --o_

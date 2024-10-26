@@ -17,9 +17,10 @@ export class UserService {
     { id: '6', name: 'Joyce', age: 25 },
     { id: '7', name: 'Tess', age: 31 },
     { id: '8', name: 'Juliette', age: 23 },
+    { id: '9', name: 'Caitlin', age: 25 },
+    { id: '10', name: 'Serana', age: 31 },
+    { id: '11', name: 'Lydia', age: 33 },
   ];
-
-  constructor() { }
 
   getAllUsers() : Observable<UserInterface[]> {
     return new Observable<UserInterface[]>(observer => {

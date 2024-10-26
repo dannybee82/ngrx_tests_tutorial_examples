@@ -28,6 +28,12 @@ export class ShowUsersComponent implements OnInit {
 
   ngOnInit() : void {    
     this.data$ = this.store.select('users');
+
+    this.data$.subscribe((users: UserStateInterface) => {
+      if(users.data.length > 0) {
+        this.showButton.set(false);
+      }
+    });
   }
 
   showUsers() : void {
