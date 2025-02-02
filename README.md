@@ -1,6 +1,6 @@
 # ngrx\_tests\_tutorial\_examples
 
-Angular 18 application + Angular Material + Bootstrap 5
+Angular 19 application + Angular Material + Bootstrap 5
 
 Showcase of NgRX examples - when returning back to a page it keeps it's state.
 

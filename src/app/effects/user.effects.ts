@@ -21,7 +21,7 @@ export class UsersEffects {
                 .getAllUsers()
                 .pipe(
                     //Note the last users: that is an object that will be provided.
-                    //The last users is placed between accolades -> see: props<{ users: UserInterface[] }>() in user.actions.ts
+                    //The last users is placed between curly brackets -> see: props<{ users: UserInterface[] }>() in user.actions.ts
                     map( 
                         (users: UserInterface[]) => UserActions.getUsersSuccess({ users }) 
                     ),
