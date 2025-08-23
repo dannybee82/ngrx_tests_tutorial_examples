@@ -15,7 +15,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-even-or-odd',
-  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -39,10 +38,10 @@ export class EvenOrOddComponent implements OnInit {
 
   numbersForm: UntypedFormGroup = new FormGroup({});
 
-  showErrors: WritableSignal<string[]> = signal([]);
+  protected showErrors: WritableSignal<string[]> = signal([]);
 
   ngOnInit() : void {
-    this.data$ = this.store.select('evenOdd');
+    this.data$ = this.store.select(store => store.evenOdd);
 
     this.numbersForm = this.fb.group({
       minimum: [0, [Validators.required, Validators.min(0), Validators.max(24)]],

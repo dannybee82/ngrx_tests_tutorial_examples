@@ -12,7 +12,6 @@ import { BookInterface } from '../../../interfaces/book.interface';
 
 @Component({
   selector: 'app-book-overview',
-  standalone: true,
   imports: [
     BookListComponent,
     BookCollectionComponent,

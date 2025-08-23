@@ -1,5 +1,5 @@
 <app-back-to-home></app-back-to-home>
-<div class="row w-100 ps-2">
+<div class="row w-100 ps-2 me-1">
     <div class="col-auto">
         <app-pager [page]="'users'"></app-pager>
     </div>
@@ -7,13 +7,13 @@
         <app-pagination [page]="'users'"></app-pagination>
     </div>
 </div>
-<div class="ps-2">
-    @if(usersData$ | async; as users) {
-        @if(users.length > 0) {            
-            @if(firstItem > -1 && lastItem > -1 && totalItems > -1) {
+@if(usersData$ | async; as users) {
+    @if(users.length > 0) {      
+        <div class="ps-2"> 
+            @if(firstItem() > -1 && lastItem() > -1 && totalItems() > -1) {
                 <div class="row mt-4">
                     <div class="col-auto">
-                        Showing {{firstItem + 1}} - {{lastItem}} of total {{totalItems}}
+                        Showing {{firstItem() + 1}} - {{lastItem()}} of total {{totalItems()}}
                     </div>
                 </div>     
             }
@@ -35,8 +35,8 @@
                     }
                 </tbody>
             </table>  
-        } @else {
-            No users to show.
-        }
+        </div>
+    } @else {
+        No users to show.
     }
-</div>
+}

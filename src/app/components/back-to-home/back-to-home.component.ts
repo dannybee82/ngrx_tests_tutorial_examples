@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-back-to-home',
-  standalone: true,
   imports: [
     RouterModule,
     MatButtonModule,

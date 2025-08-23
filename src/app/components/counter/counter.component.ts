@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-counter',
-  standalone: true,
   imports: [
     CommonModule,
     BackToHomeComponent,
@@ -28,7 +27,7 @@ export class CounterComponent implements OnInit {
   private store = inject(Store<{ count: number }>);
 
   ngOnInit() : void {
-    this.count$ = this.store.select('count');
+    this.count$ = this.store.select(store => store.count);
   }
 
   increment() {

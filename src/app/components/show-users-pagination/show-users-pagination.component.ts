@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, WritableSignal, signal } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Store } from '@ngrx/store';
 import { PaginationAndPagerInterface, PaginationDataInterface } from '../../interfaces/pagination-and-pager.interface';
@@ -13,7 +13,6 @@ import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
 
 @Component({
   selector: 'app-show-users-pagination',
-  standalone: true,
   imports: [
     CommonModule,
     PagerComponent,
@@ -25,15 +24,15 @@ import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
 })
 export class ShowUsersPaginationComponent implements OnInit, OnDestroy {
 
-  usersData$?: Observable<UserInterface[]>;
+  usersData$?: Observable<UserInterface[]> | undefined;
   private _onDestroy: Subject<boolean> = new Subject();
 
   private usersService = inject(UserService);
   private store = inject(Store<{ pagination: PaginationDataInterface }>)
 
-  firstItem: number = -1;
-  lastItem: number = -1;
-  totalItems: number = -1;
+  protected firstItem: WritableSignal<number> = signal(-1);
+  protected lastItem: WritableSignal<number> = signal(-1);
+  protected totalItems: WritableSignal<number> = signal(-1);
 
   ngOnInit() : void {
     this.store.select(selectPage('users'))
@@ -62,9 +61,9 @@ export class ShowUsersPaginationComponent implements OnInit, OnDestroy {
       next: (result) => {
         this.usersData$ = this.createObservable(result.items);
 
-        this.firstItem = result.from;
-        this.lastItem = result.to;
-        this.totalItems = result.totalCount;
+        this.firstItem.set(result.from);
+        this.lastItem.set(result.to);
+        this.totalItems.set(result.totalCount);
 
         this.store.dispatch(setTotalPages({totalPages: result.totalPages, itemsPerPage: result.pageSize, page: 'users'}));
       }

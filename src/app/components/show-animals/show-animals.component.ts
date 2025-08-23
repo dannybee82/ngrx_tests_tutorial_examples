@@ -8,14 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
 import { AnimalData } from '../../interfaces/animal-data.interface';
 import { Store } from '@ngrx/store';
-import * as Actions from '../../actions/animals.action'
+import * as Actions from '../../actions/animals.action';
 import { EMPTY, Observable, of, switchMap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AnimalSearch } from '../../interfaces/animal-search.interface';
 
 @Component({
   selector: 'app-show-animals',
-  standalone: true,
   imports: [
     BackToHomeComponent,
     MatFormFieldModule,
@@ -45,9 +44,8 @@ export class ShowAnimalsComponent implements OnInit {
       animalName: ['']
     });
 
-    this.data$ = this.store.select('animals');
-
-    const animalName$ = this.store.select('animal_search');
+    this.data$ = this.store.select(store => store.animals);
+    const animalName$ = this.store.select(store => store.animal_search);
 
     if(animalName$) {
       animalName$.pipe(

@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { PaginationAndPagerInterface } from "../interfaces/pagination-and-pager.interface";
+import { PaginationAndPagerInterface, PaginationDataInterface } from "../interfaces/pagination-and-pager.interface";
 
 export const selectData = (state: any) => {
     let all = {...state};

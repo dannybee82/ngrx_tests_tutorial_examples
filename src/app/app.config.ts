@@ -1,8 +1,6 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-import { provideAnimations } from '@angular/platform-browser/animations';
-
 import { routes } from './app.routes';
 
 //When using standalone-components/bootstrap:
@@ -22,9 +20,9 @@ import { paginationReducer } from './reducers/pagination.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection({eventCoalescing: true}),
     provideHttpClient(),
     provideRouter(routes),
-    provideAnimations(),
     provideStore(),
     //Use: importProvidersFrom(). A global state-container (count) with it's Reducer (counterReducer) is defined here.
     //importProvidersFrom( StoreModule.forRoot({ count: counterReducer }) ),

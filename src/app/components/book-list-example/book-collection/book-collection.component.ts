@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 import { BookInterface } from '../../../interfaces/book.interface';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-book-collection',
-  standalone: true,
   imports: [
     MatButtonModule,
     MatIconModule
@@ -15,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class BookCollectionComponent {
 
-  @Input() books: ReadonlyArray<BookInterface> = [];
-  @Output() remove = new EventEmitter<string>();
+  readonly books: InputSignal<ReadonlyArray<BookInterface>> = input<ReadonlyArray<BookInterface>>([]);
+  readonly remove: OutputEmitterRef<string> = output<string>();
 
 }

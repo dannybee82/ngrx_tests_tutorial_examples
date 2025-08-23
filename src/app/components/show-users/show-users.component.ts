@@ -1,7 +1,7 @@
 import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UserStateInterface } from '../../interfaces/user-state.interface';
-import * as UserActions from '../../actions/user.actions'
+import * as UserActions from '../../actions/user.actions';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { BackToHomeComponent } from '../back-to-home/back-to-home.component';
@@ -9,7 +9,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-show-users',
-  standalone: true,
   imports: [
     CommonModule,
     BackToHomeComponent,
@@ -22,12 +21,12 @@ export class ShowUsersComponent implements OnInit {
 
   data$?: Observable<UserStateInterface>;
 
-  showButton: WritableSignal<boolean> = signal(true);
+  protected showButton: WritableSignal<boolean> = signal(true);
 
   private store = inject(Store<UserStateInterface>);
 
-  ngOnInit() : void {    
-    this.data$ = this.store.select('users');
+  ngOnInit() : void {
+    this.data$ = this.store.select(store => store.users);
 
     this.data$.subscribe((users: UserStateInterface) => {
       if(users.data.length > 0) {
