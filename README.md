@@ -1,6 +1,6 @@
 # ngrx\_tests\_tutorial\_examples
 
-Angular 20 application + Angular Material + Bootstrap 5
+Angular 21 application + Angular Material + Bootstrap 5
 
 Showcase of NgRX examples - when returning back to a page it keeps it's state.
 
@@ -20,7 +20,7 @@ See the root of this project for example images.
 
 ## Installation + run app
 
-**Angular 20** needs a **Node.js** version of at least _20.19.0_
+**Angular 21** needs a **Node.js** version of at least _20.19.0_
 
 **Command to install**
 
@@ -39,6 +39,13 @@ or shorter:
 _ng s --o_
 
 ### **Changelog:**
+
+_December 2025_
+
+\- Upgrade to _Angular 21_ and upgraded other packages.
+
+*   Removed deprecated _Karma_ and installed _Vitest._
+*   Migrated _Jasmine_ tests to _Vitest_ tests for future use (command: **ng generate refactor-jasmine-vitest**).
 
 _August 2025_
 
